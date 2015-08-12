@@ -31,6 +31,9 @@ class RerouteController extends BaseController
 		$model->newUrl = $data['newUrl'];
 		$model->method = $data['method'];
 
+		// Reset hit counter to zero
+		$model->hits = 0;
+
 		// Did we pass validation?
 		if($model->validate()) {
 			craft()->reroute->save($model);

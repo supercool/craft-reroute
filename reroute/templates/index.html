@@ -16,6 +16,7 @@
 				<th scope="col">{{ 'Old Url'|t }}</th>
 				<th scope="col">{{ 'New Url'|t }}</th>
 				<th scope="col">{{ 'Method'|t }}</th>
+				<th scope="col">{{ 'Hits'|t }}</th>
 				<th class="thin"></th>
 				<th scope="col">{{ 'Delete'|t }}</th>
 			</thead>
@@ -25,6 +26,7 @@
 						<td><a href="{{ url('reroute/'~reroute.id) }}">{{ reroute.oldUrl }}</a></td>
 						<td>{{ reroute.newUrl }}</td>
 						<td>{{ reroute.method }}</td>
+						<td>{{ reroute.hits }}</td>
 						<td><a href="{{ reroute.oldUrl }}" target="_blank" class="go">{{ 'View'|t }}</a></td>
 						<td><a class="delete icon" title="{{ 'Delete'|t }}"></a></td>
 					</tr>

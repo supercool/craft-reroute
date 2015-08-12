@@ -65,6 +65,17 @@ class RerouteService extends BaseApplicationComponent
 
 
 	/**
+	 * Adds a hit to the hits column
+	 * @param  int $url
+	 * @return boolean
+	 */
+	public function hit($id, $hits) {
+		craft()->db->createCommand()->update('reroute', array('hits' => $hits+1), array('id' => $id));
+		return true;
+	}
+
+
+	/**
 	 * Create a new Reroute object and set the attributes
 	 * @param  array  $attributes
 	 * @return RerouteModel

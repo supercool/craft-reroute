@@ -26,7 +26,7 @@ class RerouteService extends BaseApplicationComponent
 	public function getAll()
 	{
 		$reroutes = craft()->db->createCommand()
-					->select('id, oldUrl, newUrl, method')
+					->select('id, oldUrl, newUrl, method, hits')
 					->from('reroute')
 					->queryAll();
 
@@ -54,13 +54,24 @@ class RerouteService extends BaseApplicationComponent
 	 */
 	public function getByUrl($url) {
 		$reroute = craft()->db->createCommand()
-					->select('id, oldUrl, newUrl, method')
+					->select('id, oldUrl, newUrl, method, hits')
 					->from('reroute')
 					->where('oldUrl = :url', array(':url' => $url))
 					->limit(1)
 					->queryRow();
 
 		return $reroute;
+	}
+
+
+	/**
+	 * Adds a hit to the hits column
+	 * @param  int $url
+	 * @return boolean
+	 */
+	public function hit($id, $hits) {
+		craft()->db->createCommand()->update('reroute', array('hits' => $hits+1), array('id' => $id));
+		return true;
 	}
 
 

@@ -1,7 +1,7 @@
 <?php
 namespace Craft;
 
-class m1508123_155100_reroute_addHitsColumn extends BaseMigration
+class m150813_155100_reroute_addHitsColumn extends BaseMigration
 {
 	public function safeUp()
 	{
